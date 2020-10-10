@@ -16,7 +16,6 @@ $.ajaxPrefilter(function (options) {
 
     // 不是每一个权限的请求都要去判断complete 所以把complete 放在ajaxPrefilter中
     options.complete = function (res) {
-        console.log(res.responseJSON);
         // 身份认证失败的时候删除token 并强制跳转到登录页面
         if (res.responseJSON.status === 1 && res.responseJSON.message == "身份认证失败！") {
             localStorage.removeItem('token')
