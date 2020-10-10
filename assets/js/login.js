@@ -71,8 +71,11 @@ $(function () {
                 if (res.status !== 0) {
                     return layer.msg(res.message)
                 }
+                // 提示信息
                 layer.msg(res.message)
-                console.log(res);
+                // 设置本地存储token
+                localStorage.setItem("token", res.token)
+                console.log(res)
                 // 登录成功跳转到index.html页面
                 location.href = '/index.html'
             }
